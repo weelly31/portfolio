@@ -162,7 +162,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-20 animate-pulse"></div>
               <div className="relative w-80 h-96 rounded-3xl overflow-hidden border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+                  src="img/picture.png"
                   alt="Wellrose U. Andrade"
                   className="w-full h-full object-cover"
                 />
