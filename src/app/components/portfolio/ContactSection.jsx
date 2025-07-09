@@ -84,17 +84,17 @@ export default function ContactSection() {
               {
                 icon: <Mail className="w-6 h-6 text-blue-400" />,
                 label: 'Email',
-                value: 'wellrose.andrade@example.com'
+                value: 'weellandrade31@gmail.com'
               },
               {
                 icon: <Phone className="w-6 h-6 text-green-400" />,
                 label: 'Phone',
-                value: '+1 (555) 123-4567'
+                value: '09763030348'
               },
               {
                 icon: <MapPin className="w-6 h-6 text-purple-400" />,
                 label: 'Location',
-                value: 'Available for Remote Work'
+                value: 'Cainta, Rizal'
               }
             ].map(({ icon, label, value }, idx) => (
               <div key={idx} className="flex items-center gap-4 text-slate-300">
@@ -108,23 +108,42 @@ export default function ContactSection() {
               </div>
             ))}
 
-            <div className="flex gap-4 pt-6">
-              {[Github, Linkedin].map((Icon, idx) => (
-                <IconButton
-                  key={idx}
-                  sx={{
-                    width: '48px',
-                    height: '48px',
-                    color: '#94a3b8',
-                    backgroundColor: '#1e293b',
-                    border: '1px solid #334155',
-                    '&:hover': { backgroundColor: '#334155', color: 'white' }
-                  }}
-                >
-                  <Icon className="w-5 h-5" />
-                </IconButton>
-              ))}
-            </div>
+          <div className="flex gap-4 pt-6">
+  {[
+    {
+      icon: Github,
+      url: 'https://github.com/weelly31' // ← replace with your GitHub link
+    },
+    {
+      icon: Linkedin,
+      url: 'https://www.linkedin.com/in/wellrose-andrade-5a4919345'
+    }
+  ].map(({ icon: Icon, url }, idx) => (
+    <a
+      key={idx}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <IconButton
+        sx={{
+          width: '48px',
+          height: '48px',
+          color: '#94a3b8',
+          backgroundColor: '#1e293b',
+          border: '1px solid #334155',
+          '&:hover': {
+            backgroundColor: '#334155',
+            color: 'white'
+          }
+        }}
+      >
+        <Icon className="w-5 h-5" />
+      </IconButton>
+    </a>
+  ))}
+</div>
+
           </motion.div>
 
           {/* Contact Form */}

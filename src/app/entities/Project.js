@@ -4,7 +4,7 @@ export const Project = {
     {
       id: 1,
       title: "Portfolio Website",
-      description: "A personal portfolio site to showcase my skills and projects.",
+      description: "A Dashboard site to showcase my skills and projects.",
       image_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
       tech_stack: ["React.js", "Material-UI", "Framer Motion"],
       live_url: "https://yourportfolio.com",

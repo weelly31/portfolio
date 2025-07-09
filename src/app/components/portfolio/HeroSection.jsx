@@ -4,9 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import Link from 'next/link';
 import { Github, Linkedin, Mail, Download, Code, Palette } from 'lucide-react';
 
-export default function HeroSection() {
+export default function HeroSection({ scrollToContact }) {
   const techStack = ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript', 'Material-UI'];
 
   return (
@@ -97,6 +98,7 @@ export default function HeroSection() {
               className="flex flex-wrap gap-4"
             >
               <Button
+                onClick={scrollToContact}
                 variant="contained"
                 size="large"
                 startIcon={<Mail />}
@@ -111,18 +113,24 @@ export default function HeroSection() {
               >
                 Get In Touch
               </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                startIcon={<Download />}
-                sx={{
-                  color: '#cbd5e1',
-                  borderColor: '#475569',
-                  '&:hover': { backgroundColor: '#334155', borderColor: '#64748b' },
-                }}
-              >
-                Download CV
-              </Button>
+
+              <a href="/resume.pdf" download style={{ textDecoration: 'none' }}>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  startIcon={<Download />}
+                  sx={{
+                    color: '#cbd5e1',
+                    borderColor: '#475569',
+                    '&:hover': {
+                      backgroundColor: '#334155',
+                      borderColor: '#64748b',
+                    },
+                  }}
+                >
+                  Download CV
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div
@@ -131,22 +139,42 @@ export default function HeroSection() {
               transition={{ delay: 1.4 }}
               className="flex gap-4"
             >
-              {[Github, Linkedin, Mail].map((Icon, i) => (
-                <IconButton
+              {[
+                {
+                  icon: Github,
+                  url: 'https://github.com/weelly31',
+                  newTab: true,
+                },
+                {
+                  icon: Linkedin,
+                  url: 'https://www.linkedin.com/in/wellrose-andrade-5a4919345',
+                  newTab: true,
+                },
+                {
+                  icon: Mail,
+                  url: 'mailto:weellandrade31@gmail.com',
+                },
+              ].map(({ icon: Icon, url, newTab }, i) => (
+                <a
                   key={i}
-                  sx={{
-                    width: '48px',
-                    height: '48px',
-                    color: '#94a3b8',
-                    border: '1px solid #475569',
-                    '&:hover': {
-                      backgroundColor: '#334155',
-                      color: 'white',
-                    },
-                  }}
+                  href={url}
+                  {...(newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
-                  <Icon className="w-5 h-5" />
-                </IconButton>
+                  <IconButton
+                    sx={{
+                      width: '48px',
+                      height: '48px',
+                      color: '#94a3b8',
+                      border: '1px solid #475569',
+                      '&:hover': {
+                        backgroundColor: '#334155',
+                        color: 'white',
+                      },
+                    }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </IconButton>
+                </a>
               ))}
             </motion.div>
           </motion.div>
